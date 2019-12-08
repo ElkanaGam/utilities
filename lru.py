@@ -6,7 +6,7 @@ class B_Dict():
         self.cache = {}
         self.keys  = []
 
-    def set_item (self, k,v):
+    def __setitem__ (self, k,v):
         if self.counter <  self.max_size:
             self.cache[k] = v
             self.counter += 1
@@ -20,13 +20,13 @@ class B_Dict():
             self.keys.append(k)
             self.counter += 1
 
-    def get_item(self, k):
+    def __getitem__ (self, k):
         return self.cache[k] if self.cache[k] else print("doesnt exist")
 
 
-b = B_Dict(4)
-for i in range (10):
-    b.set_item(i, "i")
+b = B_Dict(2)
+for i in range (11):
+    b[i] = "i"
 
 print(b.cache)
 
